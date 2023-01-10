@@ -5,6 +5,7 @@
 #include "graphics/index_buffer.h"
 #include "graphics/vertex_array.h"
 #include "graphics/textures.h"
+#include "graphics/orthographic_camera.h"
 #include "log.h"
 #include "imgui_receiver.h"
 
@@ -19,14 +20,18 @@ layout (location = 0) in vec3 aPos;
 layout (location = 1) in vec3 aColor;
 layout (location = 2) in vec2 aTexCoord;
 
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
+
 out vec3 ourColor;
 out vec2 TexCoord;
 
 void main()
 {
-	gl_Position = vec4(aPos, 1.0);
 	ourColor = aColor;
 	TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+	gl_Position = projection * view * model * vec4(aPos, 1.0);
 }
 )";
     static const char* texfsrc = R"(
@@ -76,7 +81,7 @@ void main()
 	    receivers_[i]->onCreate();
 	}
     
-	Livesey::Shader shader;
+	Shader shader;
 	shader.createFromSource(texvsrc, texfsrc); 
 
 	float vertices[] = {
@@ -90,17 +95,17 @@ void main()
 	    1, 2, 3
 	};
 
-	Livesey::VertexArray va;
-	Livesey::VertexBuffer vb;
-	Livesey::IndexBuffer ib;
+	VertexArray va;
+	VertexBuffer vb;
+	IndexBuffer ib;
 
 	va.create();
 	va.bind();
 
-	std::vector<Livesey::VertexAttribute> attribs = {
-	    Livesey::VertexAttribute(Livesey::AttributeType::VEC3, GL_FALSE),
-	    Livesey::VertexAttribute(Livesey::AttributeType::VEC3, GL_FALSE),	
-	    Livesey::VertexAttribute(Livesey::AttributeType::VEC2, GL_FALSE)
+	std::vector<VertexAttribute> attribs = {
+	    VertexAttribute(AttributeType::VEC3, GL_FALSE),
+	    VertexAttribute(AttributeType::VEC3, GL_FALSE),	
+	    VertexAttribute(AttributeType::VEC2, GL_FALSE)
 	};
 	vb.create(vertices, sizeof(vertices), attribs);
 	ib.create(indices, sizeof(indices));
@@ -108,9 +113,11 @@ void main()
 	va.addVertexBuffer(vb);
 	va.setIndexBuffer(ib);
 
-	Livesey::Texture2D tex;
+	Texture2D tex;
 	tex.createFromFile("img/container.jpg");
-    
+
+	OrthographicCamera camera(800, 600);
+	
 	while (!glfwWindowShouldClose(wnd)) {
 	    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -124,10 +131,13 @@ void main()
 	    static bool show_demo_window = true;
 	    if (show_demo_window)
 		ImGui::ShowDemoWindow(&show_demo_window);
-	
+
 	    tex.bind();
 
 	    shader.bind();
+	    shader.setMatrix4("model", glm::mat4(1.0f));
+	    shader.setMatrix4("view", camera.getViewMatrix());
+	    shader.setMatrix4("projection", camera.getProjectionMatrix());
 	    va.bind();
 	    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
@@ -153,50 +163,50 @@ void main()
     void Engine::dispatchEvent(Event& e) {
 	for(int i = 0; i < receivers_.size(); ++i) {
 	    switch(e.getType()) {
-	    case Livesey::EventType::I_KEY: {
-		receivers_[i]->onKeyEvent(static_cast<Livesey::KeyEvent&>(e));
+	    case EventType::I_KEY: {
+		receivers_[i]->onKeyEvent(static_cast<KeyEvent&>(e));
 	    } break;
-	    case Livesey::EventType::I_CHAR: {
-		receivers_[i]->onCharEvent(static_cast<Livesey::CharEvent&>(e));
+	    case EventType::I_CHAR: {
+		receivers_[i]->onCharEvent(static_cast<CharEvent&>(e));
 	    } break;
-	    case Livesey::EventType::I_CURSOR_POS: {
-		receivers_[i]->onCursorPosEvent(static_cast<Livesey::CursorPosEvent&>(e));
+	    case EventType::I_CURSOR_POS: {
+		receivers_[i]->onCursorPosEvent(static_cast<CursorPosEvent&>(e));
 	    } break;
-	    case Livesey::EventType::I_CURSOR_ENTER: {
-		receivers_[i]->onCursorEnterEvent(static_cast<Livesey::CursorEnterEvent&>(e));
+	    case EventType::I_CURSOR_ENTER: {
+		receivers_[i]->onCursorEnterEvent(static_cast<CursorEnterEvent&>(e));
 	    } break;
-	    case Livesey::EventType::I_MOUSE_BUTTON: {
-		receivers_[i]->onMouseButtonEvent(static_cast<Livesey::MouseButtonEvent&>(e));
+	    case EventType::I_MOUSE_BUTTON: {
+		receivers_[i]->onMouseButtonEvent(static_cast<MouseButtonEvent&>(e));
 	    } break;
-	    case Livesey::EventType::I_SCROLL: {
-		receivers_[i]->onScrollEvent(static_cast<Livesey::ScrollEvent&>(e));
+	    case EventType::I_SCROLL: {
+		receivers_[i]->onScrollEvent(static_cast<ScrollEvent&>(e));
 	    } break;		
-	    case Livesey::EventType::W_CLOSE: {
-		receivers_[i]->onCloseEvent(static_cast<Livesey::CloseEvent&>(e)); 
+	    case EventType::W_CLOSE: {
+		receivers_[i]->onCloseEvent(static_cast<CloseEvent&>(e)); 
 	    } break;
-	    case Livesey::EventType::W_SIZE: {
-		receivers_[i]->onSizeEvent(static_cast<Livesey::SizeEvent&>(e)); 
+	    case EventType::W_SIZE: {
+		receivers_[i]->onSizeEvent(static_cast<SizeEvent&>(e)); 
 	    } break;
-	    case Livesey::EventType::W_FRAMEBUFFER_SIZE: {
-		receivers_[i]->onFramebufferSizeEvent(static_cast<Livesey::FramebufferSizeEvent&>(e)); 
+	    case EventType::W_FRAMEBUFFER_SIZE: {
+		receivers_[i]->onFramebufferSizeEvent(static_cast<FramebufferSizeEvent&>(e)); 
 	    } break;
-	    case Livesey::EventType::W_CONTENT_SCALE: {
-		receivers_[i]->onContentScaleEvent(static_cast<Livesey::ContentScaleEvent&>(e)); 
+	    case EventType::W_CONTENT_SCALE: {
+		receivers_[i]->onContentScaleEvent(static_cast<ContentScaleEvent&>(e)); 
 	    } break;
-	    case Livesey::EventType::W_POS: {
-		receivers_[i]->onPosEvent(static_cast<Livesey::PosEvent&>(e)); 
+	    case EventType::W_POS: {
+		receivers_[i]->onPosEvent(static_cast<PosEvent&>(e)); 
 	    } break;
-	    case Livesey::EventType::W_ICONIFY: {
-		receivers_[i]->onIconifyEvent(static_cast<Livesey::IconifyEvent&>(e)); 
+	    case EventType::W_ICONIFY: {
+		receivers_[i]->onIconifyEvent(static_cast<IconifyEvent&>(e)); 
 	    } break;
-	    case Livesey::EventType::W_MAXIMIZE: {
-		receivers_[i]->onMaximizeEvent(static_cast<Livesey::MaximizeEvent&>(e)); 
+	    case EventType::W_MAXIMIZE: {
+		receivers_[i]->onMaximizeEvent(static_cast<MaximizeEvent&>(e)); 
 	    } break;
-	    case Livesey::EventType::W_FOCUS: {
-		receivers_[i]->onFocusEvent(static_cast<Livesey::FocusEvent&>(e)); 
+	    case EventType::W_FOCUS: {
+		receivers_[i]->onFocusEvent(static_cast<FocusEvent&>(e)); 
 	    } break;
-	    case Livesey::EventType::W_REFRESH: {
-		receivers_[i]->onRefreshEvent(static_cast<Livesey::RefreshEvent&>(e));
+	    case EventType::W_REFRESH: {
+		receivers_[i]->onRefreshEvent(static_cast<RefreshEvent&>(e));
 	    } break;
 	    }
 	}

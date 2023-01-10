@@ -1590,6 +1590,7 @@ CMakeFiles/livesey.dir/src/main.cpp.o: src/main.cpp \
   src/livesey/graphics/vertex_buffer.h \
   src/livesey/graphics/index_buffer.h \
   src/livesey/graphics/textures.h \
+  src/livesey/graphics/orthographic_camera.h \
   src/livesey/input.cpp \
   src/livesey/input.h \
   src/livesey/graphics/vertex_array.cpp \
@@ -1651,8 +1652,12 @@ CMakeFiles/livesey.dir/src/main.cpp.o: src/main.cpp \
   include/glm/glm/gtc/type_ptr.inl \
   src/livesey/graphics/textures.cpp \
   src/livesey/graphics/textures.h \
-  src/livesey/graphics/vertex_attribute.h
+  src/livesey/graphics/vertex_attribute.h \
+  src/livesey/graphics/orthographic_camera.cpp \
+  src/livesey/graphics/orthographic_camera.h
 
+
+src/livesey/graphics/orthographic_camera.cpp:
 
 src/livesey/graphics/textures.cpp:
 
@@ -2753,6 +2758,8 @@ src/livesey/graphics/vertex_attribute.h:
 src/livesey/log.h:
 
 src/livesey/graphics/index_buffer.h:
+
+src/livesey/graphics/orthographic_camera.h:
 
 src/livesey/input.h:
 

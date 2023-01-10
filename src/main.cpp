@@ -16,6 +16,7 @@
 #include "livesey/graphics/shader.cpp"
 #include "livesey/graphics/textures.cpp"
 #include "livesey/graphics/vertex_attribute.h"
+#include "livesey/graphics/orthographic_camera.cpp"
 
 int main(int argc, char** argv) {	
     Livesey::Engine* engine = new Livesey::Engine();
