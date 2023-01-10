@@ -1,0 +1,12 @@
+[submodule "include/glm"]
+	path = include/glm
+	url = git@github.com:g-truc/glm.git
+[submodule "include/stb"]
+	path = include/stb
+	url = git@github.com:nothings/stb.git
+[submodule "include/imgui"]
+	path = include/imgui
+	url = git@github.com:ocornut/imgui.git
+[submodule "include/glfw"]
+	path = include/glfw
+	url = git@github.com:glfw/glfw.git

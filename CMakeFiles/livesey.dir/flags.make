@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/home/dinn/projects/livesey-engine/include -I/home/dinn/projects/livesey-engine/include/imgui
+C_INCLUDES = -I/home/dinn/projects/livesey-engine/include -I/home/dinn/projects/livesey-engine/include/imgui -I/home/dinn/projects/livesey-engine/include/glm
 
 C_FLAGS = 
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/dinn/projects/livesey-engine/include -I/home/dinn/projects/livesey-engine/include/imgui
+CXX_INCLUDES = -I/home/dinn/projects/livesey-engine/include -I/home/dinn/projects/livesey-engine/include/imgui -I/home/dinn/projects/livesey-engine/include/glm
 
 CXX_FLAGS = 
 
