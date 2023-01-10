@@ -1,0 +1,5 @@
+#+STARTUP: overview 
+#+PROPERTY: header-args :comments yes :results silent
+* Livesey
+#+html: <p align="center"><img src="https://bigpicture.ru/wp-content/uploads/2022/09/bigpicture_ru_236917685.jpg" /></p>
+Livesey is a game engine focused on simplicity. Currently under development.

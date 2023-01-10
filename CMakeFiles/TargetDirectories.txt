@@ -1,0 +1,3 @@
+/home/dinn/projects/livesey-engine/CMakeFiles/livesey.dir
+/home/dinn/projects/livesey-engine/CMakeFiles/edit_cache.dir
+/home/dinn/projects/livesey-engine/CMakeFiles/rebuild_cache.dir
