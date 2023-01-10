@@ -18,6 +18,9 @@
 #include "livesey/graphics/vertex_attribute.h"
 #include "livesey/graphics/orthographic_camera.cpp"
 
+#include "livesey/ecs/game_object.cpp"
+#include "livesey/ecs/scene.cpp"
+
 int main(int argc, char** argv) {	
     Livesey::Engine* engine = new Livesey::Engine();
     engine->run();

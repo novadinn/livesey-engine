@@ -377,6 +377,12 @@ CMakeFiles/livesey.dir/src/main.cpp.o: \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/index_buffer.h \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/textures.h \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/orthographic_camera.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/game_object.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/scene.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/components.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/ecs.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/../platform.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/components.h \
  /home/dinn/projects/livesey-engine/src/livesey/input.cpp \
  /home/dinn/projects/livesey-engine/src/livesey/input.h \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/vertex_array.cpp \
@@ -440,4 +446,9 @@ CMakeFiles/livesey.dir/src/main.cpp.o: \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/textures.h \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/vertex_attribute.h \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/orthographic_camera.cpp \
- /home/dinn/projects/livesey-engine/src/livesey/graphics/orthographic_camera.h
+ /home/dinn/projects/livesey-engine/src/livesey/graphics/orthographic_camera.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/game_object.cpp \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/game_object.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/scene.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/../log.h \
+ /home/dinn/projects/livesey-engine/src/livesey/ecs/scene.cpp

@@ -1591,6 +1591,12 @@ CMakeFiles/livesey.dir/src/main.cpp.o: src/main.cpp \
   src/livesey/graphics/index_buffer.h \
   src/livesey/graphics/textures.h \
   src/livesey/graphics/orthographic_camera.h \
+  src/livesey/ecs/game_object.h \
+  src/livesey/ecs/scene.h \
+  src/livesey/ecs/components.h \
+  src/livesey/ecs/ecs.h \
+  src/livesey/platform.h \
+  src/livesey/ecs/components.h \
   src/livesey/input.cpp \
   src/livesey/input.h \
   src/livesey/graphics/vertex_array.cpp \
@@ -1654,8 +1660,15 @@ CMakeFiles/livesey.dir/src/main.cpp.o: src/main.cpp \
   src/livesey/graphics/textures.h \
   src/livesey/graphics/vertex_attribute.h \
   src/livesey/graphics/orthographic_camera.cpp \
-  src/livesey/graphics/orthographic_camera.h
+  src/livesey/graphics/orthographic_camera.h \
+  src/livesey/ecs/game_object.cpp \
+  src/livesey/ecs/game_object.h \
+  src/livesey/ecs/scene.h \
+  src/livesey/log.h \
+  src/livesey/ecs/scene.cpp
 
+
+src/livesey/ecs/scene.cpp:
 
 src/livesey/graphics/orthographic_camera.cpp:
 
@@ -1691,9 +1704,15 @@ include/glm/glm/detail/type_quat.inl:
 
 include/glm/glm/ext/quaternion_relational.inl:
 
+include/glm/glm/ext/quaternion_float.hpp:
+
+include/glm/glm/ext/quaternion_geometric.inl:
+
 /usr/include/c++/11/bits/hash_bytes.h:
 
 /usr/include/c++/11/bits/move.h:
+
+src/livesey/ecs/ecs.h:
 
 /usr/include/c++/11/bits/exception.h:
 
@@ -1773,8 +1792,6 @@ include/glm/glm/ext/vector_float4.hpp:
 
 /usr/include/c++/11/bits/erase_if.h:
 
-include/glm/glm/ext/quaternion_float.hpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/wmmintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vldqintrin.h:
@@ -1816,6 +1833,10 @@ include/glm/glm/ext/scalar_constants.hpp:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/rtmintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/pkuintrin.h:
+
+include/glm/glm/ext/quaternion_common.inl:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/mwaitxintrin.h:
 
 /usr/include/c++/11/type_traits:
 
@@ -1919,8 +1940,6 @@ include/glm/glm/ext/vector_float1_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
-include/imgui/imgui_demo.cpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/lwpintrin.h:
 
 /usr/include/c++/11/bits/exception_defines.h:
@@ -1928,8 +1947,6 @@ include/imgui/imgui_demo.cpp:
 /usr/include/c++/11/bits/postypes.h:
 
 /usr/include/GL/gl.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 include/glm/glm/ext/vector_float2_precision.hpp:
 
@@ -2225,8 +2242,6 @@ src/livesey/input.cpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/rdseedintrin.h:
 
-include/glm/glm/ext/quaternion_geometric.inl:
-
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
 include/glm/glm/ext/matrix_float2x4_precision.hpp:
@@ -2439,6 +2454,10 @@ include/stb/stb_image.h:
 
 /usr/include/asm-generic/errno-base.h:
 
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+src/livesey/ecs/game_object.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/hresetintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
@@ -2493,6 +2512,10 @@ include/glm/glm/matrix.hpp:
 
 /usr/include/c++/11/istream:
 
+include/imgui/imgui_demo.cpp:
+
+src/livesey/ecs/components.h:
+
 /usr/include/c++/11/bits/istream.tcc:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/lzcntintrin.h:
@@ -2512,10 +2535,6 @@ src/livesey/events.h:
 include/glm/glm/ext/quaternion_float_precision.hpp:
 
 include/glm/glm/mat3x2.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/mwaitxintrin.h:
-
-include/glm/glm/ext/quaternion_common.inl:
 
 /usr/include/c++/11/bits/invoke.h:
 
@@ -2566,6 +2585,8 @@ include/glm/glm/detail/qualifier.hpp:
 include/glm/glm/ext/quaternion_double.hpp:
 
 include/glm/glm/ext/vector_bool2.hpp:
+
+src/livesey/ecs/game_object.cpp:
 
 include/glm/glm/detail/type_vec2.hpp:
 
@@ -2740,6 +2761,8 @@ include/glm/glm/ext/matrix_double2x2_precision.hpp:
 /usr/include/features.h:
 
 include/glm/glm/packing.hpp:
+
+src/livesey/ecs/scene.h:
 
 /usr/include/c++/11/bits/basic_ios.tcc:
 

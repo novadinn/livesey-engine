@@ -6,6 +6,9 @@
 #include "graphics/vertex_array.h"
 #include "graphics/textures.h"
 #include "graphics/orthographic_camera.h"
+#include "ecs/game_object.h"
+#include "ecs/scene.h"
+#include "ecs/components.h"
 #include "log.h"
 #include "imgui_receiver.h"
 
