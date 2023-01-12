@@ -377,6 +377,24 @@ CMakeFiles/livesey.dir/src/main.cpp.o: \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/index_buffer.h \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/textures.h \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/orthographic_camera.h \
+ /home/dinn/projects/livesey-engine/src/livesey/graphics/renderer_2d.h \
+ /home/dinn/projects/livesey-engine/src/livesey/graphics/../ecs/components.h \
+ /home/dinn/projects/livesey-engine/src/livesey/graphics/../ecs/../graphics/textures.h \
+ /home/dinn/projects/livesey-engine/src/livesey/graphics/../ecs/../graphics/shader.h \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/matrix_transform.hpp \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/matrix_projection.hpp \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/../gtc/constants.hpp \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/../gtc/../ext/scalar_constants.hpp \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/../gtc/../ext/../detail/setup.hpp \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/../gtc/../ext/scalar_constants.inl \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/../gtc/constants.inl \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/matrix_projection.inl \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/matrix_clip_space.hpp \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/matrix_clip_space.inl \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/matrix_transform.hpp \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../ext/matrix_transform.inl \
+ /home/dinn/projects/livesey-engine/include/glm/glm/gtc/matrix_transform.inl \
+ /home/dinn/projects/livesey-engine/src/livesey/graphics/../ecs/game_object.h \
  /home/dinn/projects/livesey-engine/src/livesey/ecs/game_object.h \
  /home/dinn/projects/livesey-engine/src/livesey/ecs/scene.h \
  /home/dinn/projects/livesey-engine/src/livesey/ecs/components.h \
@@ -393,19 +411,6 @@ CMakeFiles/livesey.dir/src/main.cpp.o: \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/shader.h \
  /home/dinn/projects/livesey-engine/include/glm/glm/gtc/type_ptr.hpp \
  /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/quaternion.hpp \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/constants.hpp \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/scalar_constants.hpp \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/../detail/setup.hpp \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/scalar_constants.inl \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/constants.inl \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/matrix_transform.hpp \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/matrix_projection.hpp \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/matrix_projection.inl \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/matrix_clip_space.hpp \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/matrix_clip_space.inl \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/matrix_transform.hpp \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/../ext/matrix_transform.inl \
- /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../gtc/matrix_transform.inl \
  /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../ext/vector_relational.hpp \
  /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../ext/vector_relational.inl \
  /home/dinn/projects/livesey-engine/include/glm/glm/gtc/../gtc/../ext/../detail/type_float.hpp \
@@ -447,6 +452,8 @@ CMakeFiles/livesey.dir/src/main.cpp.o: \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/vertex_attribute.h \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/orthographic_camera.cpp \
  /home/dinn/projects/livesey-engine/src/livesey/graphics/orthographic_camera.h \
+ /home/dinn/projects/livesey-engine/src/livesey/graphics/renderer_2d.cpp \
+ /home/dinn/projects/livesey-engine/src/livesey/graphics/renderer_2d.h \
  /home/dinn/projects/livesey-engine/src/livesey/ecs/game_object.cpp \
  /home/dinn/projects/livesey-engine/src/livesey/ecs/game_object.h \
  /home/dinn/projects/livesey-engine/src/livesey/ecs/scene.h \

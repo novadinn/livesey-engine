@@ -1591,6 +1591,24 @@ CMakeFiles/livesey.dir/src/main.cpp.o: src/main.cpp \
   src/livesey/graphics/index_buffer.h \
   src/livesey/graphics/textures.h \
   src/livesey/graphics/orthographic_camera.h \
+  src/livesey/graphics/renderer_2d.h \
+  src/livesey/ecs/components.h \
+  src/livesey/graphics/textures.h \
+  src/livesey/graphics/shader.h \
+  include/glm/glm/gtc/matrix_transform.hpp \
+  include/glm/glm/ext/matrix_projection.hpp \
+  include/glm/glm/gtc/constants.hpp \
+  include/glm/glm/ext/scalar_constants.hpp \
+  include/glm/glm/detail/setup.hpp \
+  include/glm/glm/ext/scalar_constants.inl \
+  include/glm/glm/gtc/constants.inl \
+  include/glm/glm/ext/matrix_projection.inl \
+  include/glm/glm/ext/matrix_clip_space.hpp \
+  include/glm/glm/ext/matrix_clip_space.inl \
+  include/glm/glm/ext/matrix_transform.hpp \
+  include/glm/glm/ext/matrix_transform.inl \
+  include/glm/glm/gtc/matrix_transform.inl \
+  src/livesey/ecs/game_object.h \
   src/livesey/ecs/game_object.h \
   src/livesey/ecs/scene.h \
   src/livesey/ecs/components.h \
@@ -1607,19 +1625,6 @@ CMakeFiles/livesey.dir/src/main.cpp.o: src/main.cpp \
   src/livesey/graphics/shader.h \
   include/glm/glm/gtc/type_ptr.hpp \
   include/glm/glm/gtc/quaternion.hpp \
-  include/glm/glm/gtc/constants.hpp \
-  include/glm/glm/ext/scalar_constants.hpp \
-  include/glm/glm/detail/setup.hpp \
-  include/glm/glm/ext/scalar_constants.inl \
-  include/glm/glm/gtc/constants.inl \
-  include/glm/glm/gtc/matrix_transform.hpp \
-  include/glm/glm/ext/matrix_projection.hpp \
-  include/glm/glm/ext/matrix_projection.inl \
-  include/glm/glm/ext/matrix_clip_space.hpp \
-  include/glm/glm/ext/matrix_clip_space.inl \
-  include/glm/glm/ext/matrix_transform.hpp \
-  include/glm/glm/ext/matrix_transform.inl \
-  include/glm/glm/gtc/matrix_transform.inl \
   include/glm/glm/ext/vector_relational.hpp \
   include/glm/glm/ext/vector_relational.inl \
   include/glm/glm/detail/type_float.hpp \
@@ -1661,6 +1666,8 @@ CMakeFiles/livesey.dir/src/main.cpp.o: src/main.cpp \
   src/livesey/graphics/vertex_attribute.h \
   src/livesey/graphics/orthographic_camera.cpp \
   src/livesey/graphics/orthographic_camera.h \
+  src/livesey/graphics/renderer_2d.cpp \
+  src/livesey/graphics/renderer_2d.h \
   src/livesey/ecs/game_object.cpp \
   src/livesey/ecs/game_object.h \
   src/livesey/ecs/scene.h \
@@ -1669,6 +1676,8 @@ CMakeFiles/livesey.dir/src/main.cpp.o: src/main.cpp \
 
 
 src/livesey/ecs/scene.cpp:
+
+src/livesey/graphics/renderer_2d.cpp:
 
 src/livesey/graphics/orthographic_camera.cpp:
 
@@ -1708,6 +1717,8 @@ include/glm/glm/ext/quaternion_float.hpp:
 
 include/glm/glm/ext/quaternion_geometric.inl:
 
+include/glm/glm/ext/quaternion_geometric.hpp:
+
 /usr/include/c++/11/bits/hash_bytes.h:
 
 /usr/include/c++/11/bits/move.h:
@@ -1723,8 +1734,6 @@ src/livesey/ecs/ecs.h:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/uintrintrin.h:
 
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
-
-include/glm/glm/ext/quaternion_geometric.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bwintrin.h:
 
@@ -2784,6 +2793,18 @@ src/livesey/graphics/index_buffer.h:
 
 src/livesey/graphics/orthographic_camera.h:
 
+src/livesey/graphics/renderer_2d.h:
+
+include/glm/glm/ext/matrix_float3x3.hpp:
+
+include/glm/glm/ext/matrix_clip_space.hpp:
+
+include/glm/glm/detail/type_quat.hpp:
+
+include/glm/glm/ext/matrix_clip_space.inl:
+
+include/glm/glm/ext/vector_relational.hpp:
+
 src/livesey/input.h:
 
 src/livesey/graphics/vertex_array.cpp:
@@ -2799,16 +2820,6 @@ src/livesey/graphics/vertex_buffer.cpp:
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 include/glm/glm/gtc/quaternion.hpp:
-
-include/glm/glm/ext/matrix_float3x3.hpp:
-
-include/glm/glm/ext/matrix_clip_space.hpp:
-
-include/glm/glm/detail/type_quat.hpp:
-
-include/glm/glm/ext/matrix_clip_space.inl:
-
-include/glm/glm/ext/vector_relational.hpp:
 
 include/glm/glm/ext/vector_relational.inl:
 

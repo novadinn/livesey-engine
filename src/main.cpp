@@ -10,6 +10,7 @@
 #include "livesey/imgui_receiver.cpp"
 #include "livesey/engine.cpp"
 #include "livesey/input.cpp"
+
 #include "livesey/graphics/vertex_array.cpp"
 #include "livesey/graphics/vertex_buffer.cpp"
 #include "livesey/graphics/index_buffer.cpp"
@@ -17,6 +18,7 @@
 #include "livesey/graphics/textures.cpp"
 #include "livesey/graphics/vertex_attribute.h"
 #include "livesey/graphics/orthographic_camera.cpp"
+#include "livesey/graphics/renderer_2d.cpp"
 
 #include "livesey/ecs/game_object.cpp"
 #include "livesey/ecs/scene.cpp"

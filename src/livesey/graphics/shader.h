@@ -13,17 +13,17 @@ namespace Livesey {
 	void bind();
 	void unbind();
 
-	void setFloat1(const char* s, float v);
-	void setFloat2(const char* s, const glm::vec2& v);
-	void setFloat3(const char* s, const glm::vec3& v);
-	void setFloat4(const char* s, const glm::vec4& v);
+	void setFloat(const char* s, float v);
+	void setVec2(const char* s, const glm::vec2& v);
+	void setVec3(const char* s, const glm::vec3& v);
+	void setVec4(const char* s, const glm::vec4& v);
 
-	void setInt1(const char* s, int v);
+	void setInt(const char* s, int v);
 	void setInt2(const char* s, const glm::ivec2& v);
 	void setInt3(const char* s, const glm::ivec3& v);
 	void setInt4(const char* s, const glm::ivec4& v);
 
-	void setUInt1(const char* s, uint v);
+	void setUInt(const char* s, uint v);
 	void setUInt2(const char* s, const glm::uvec2& v);
 	void setUInt3(const char* s, const glm::uvec3& v);
 	void setUInt4(const char* s, const glm::uvec4& v);

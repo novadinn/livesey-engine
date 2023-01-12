@@ -6,6 +6,7 @@
 #include "graphics/vertex_array.h"
 #include "graphics/textures.h"
 #include "graphics/orthographic_camera.h"
+#include "graphics/renderer_2d.h"
 #include "ecs/game_object.h"
 #include "ecs/scene.h"
 #include "ecs/components.h"
@@ -16,43 +17,6 @@
 #include <GLFW/glfw3.h>
 
 namespace Livesey {
-
-    static const char* texvsrc = R"(
-#version 330 core
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aColor;
-layout (location = 2) in vec2 aTexCoord;
-
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
-
-out vec3 ourColor;
-out vec2 TexCoord;
-
-void main()
-{
-	ourColor = aColor;
-	TexCoord = vec2(aTexCoord.x, aTexCoord.y);
-	gl_Position = projection * view * model * vec4(aPos, 1.0);
-}
-)";
-    static const char* texfsrc = R"(
-#version 330 core
-out vec4 FragColor;
-
-in vec3 ourColor;
-in vec2 TexCoord;
-
-// texture sampler
-uniform sampler2D texture1;
-
-void main()
-{
-	FragColor = texture(texture1, TexCoord);
-}
-)";
-
     Engine* Engine::inst_ = nullptr;
     
     Engine::Engine() {
@@ -84,46 +48,31 @@ void main()
 	    receivers_[i]->onCreate();
 	}
     
-	Shader shader;
-	shader.createFromSource(texvsrc, texfsrc); 
-
-	float vertices[] = {
-	    0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,
-	    0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,
-	    -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,
-	    -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f
-	};
-	uint indices[] = {
-	    0, 1, 3,
-	    1, 2, 3
-	};
-
-	VertexArray va;
-	VertexBuffer vb;
-	IndexBuffer ib;
-
-	va.create();
-	va.bind();
-
-	std::vector<VertexAttribute> attribs = {
-	    VertexAttribute(AttributeType::VEC3, GL_FALSE),
-	    VertexAttribute(AttributeType::VEC3, GL_FALSE),	
-	    VertexAttribute(AttributeType::VEC2, GL_FALSE)
-	};
-	vb.create(vertices, sizeof(vertices), attribs);
-	ib.create(indices, sizeof(indices));
-    
-	va.addVertexBuffer(vb);
-	va.setIndexBuffer(ib);
+	Renderer2D::onInit();
+	Renderer2D::setClearColor(glm::vec4(0.1f, 0.1f, 0.1f, 1.0f));
 
 	Texture2D tex;
-	tex.createFromFile("img/container.jpg");
+	tex.createFromFile("img/container.jpg");	
+	
+	Scene* sc = new Scene();
+	GameObject* obj = sc->createGameObject("Box");
+	SpriteRenderer* r = obj->addComponent<SpriteRenderer>();
+	r->texture = tex;
+	r->color = glm::vec4(0.8f, 0.5f, 0.1f, 1.0f);
+	Transform* t = obj->addComponent<Transform>();
+	t->position += glm::vec2(0.5f, 0.0f);
+
+	GameObject* obj2 = sc->createGameObject("Second");
+	SpriteRenderer* r2 = obj2->addComponent<SpriteRenderer>();
+	r2->texture = tex;
+	r2->color = glm::vec4(0.2f, 0.5f, 0.7f, 1.0f);
+	Transform* t2 = obj2->addComponent<Transform>();
+	t2->position -= glm::vec2(0.5f, 0.0f);
 
 	OrthographicCamera camera(800, 600);
 	
 	while (!glfwWindowShouldClose(wnd)) {
-	    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-	    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	    Renderer2D::clear();
 	    
 	    for(int i = 0; i < receivers_.size(); ++i) {
 		receivers_[i]->onUpdate();
@@ -135,14 +84,10 @@ void main()
 	    if (show_demo_window)
 		ImGui::ShowDemoWindow(&show_demo_window);
 
-	    tex.bind();
-
-	    shader.bind();
-	    shader.setMatrix4("model", glm::mat4(1.0f));
-	    shader.setMatrix4("view", camera.getViewMatrix());
-	    shader.setMatrix4("projection", camera.getProjectionMatrix());
-	    va.bind();
-	    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	    Renderer2D::begin(camera.getViewMatrix(), camera.getProjectionMatrix());
+	    Renderer2D::drawSprite(t->getModelMatrix(), r);
+	    Renderer2D::drawSprite(t2->getModelMatrix(), r2);
+	    Renderer2D::end();
 
 	    for(int i = 0; i < receivers_.size(); ++i) {
 		receivers_[i]->onDraw();
@@ -152,6 +97,8 @@ void main()
 	    
 	    wnd_->onUpdate();
 	}
+
+	Renderer2D::onDestroy();
 
 	for(int i = 0; i < receivers_.size(); ++i) {
 	    receivers_[i]->onDestroy();

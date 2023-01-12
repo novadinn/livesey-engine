@@ -94,23 +94,23 @@ namespace Livesey {
 	glUseProgram(0);
     }
 
-    void Shader::setFloat1(const char* s, float v) {
+    void Shader::setFloat(const char* s, float v) {
 	glUniform1f(glGetUniformLocation(id_, s), v);
     }
     
-    void Shader::setFloat2(const char* s, const glm::vec2& v) {
+    void Shader::setVec2(const char* s, const glm::vec2& v) {
 	glUniform2f(glGetUniformLocation(id_, s), v.x, v.y);
     }
     
-    void Shader::setFloat3(const char* s, const glm::vec3& v) {
+    void Shader::setVec3(const char* s, const glm::vec3& v) {
 	glUniform3f(glGetUniformLocation(id_, s), v.x, v.y, v.z);
     }
     
-    void Shader::setFloat4(const char* s, const glm::vec4& v) {
+    void Shader::setVec4(const char* s, const glm::vec4& v) {
 	glUniform4f(glGetUniformLocation(id_, s), v.x, v.y, v.z, v.w);
     }
         
-    void Shader::setInt1(const char* s, int v) {
+    void Shader::setInt(const char* s, int v) {
 	glUniform1i(glGetUniformLocation(id_, s), v);
     }
     
@@ -126,7 +126,7 @@ namespace Livesey {
 	glUniform4i(glGetUniformLocation(id_, s), v.x, v.y, v.z, v.w);
     }
     
-    void Shader::setUInt1(const char* s, uint v) {
+    void Shader::setUInt(const char* s, uint v) {
 	glUniform1ui(glGetUniformLocation(id_, s), v);
     }
     
